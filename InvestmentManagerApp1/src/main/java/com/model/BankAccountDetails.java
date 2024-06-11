@@ -1,0 +1,56 @@
+package com.model;
+
+public class BankAccountDetails {
+	
+	    private String bankname;
+	    private String pan;
+	    private String acNum;
+	    private String accountType;
+	    private double amountinvesting;
+
+	   
+	    public BankAccountDetails() {
+	   
+	    }
+	    public String getBankname() {
+	        return bankname;
+	    }
+
+	    public void setBankname(String bankname) {
+	        this.bankname = bankname;
+	    }
+
+	    public String getPan() {
+	        return pan;
+	    }
+
+	    public void setPan(String pan) {
+	        this.pan = pan;
+	    }
+
+	    public String getAcNum() {
+	        return acNum;
+	    }
+
+	    public void setAcNum(String acNum) {
+	        this.acNum = acNum;
+	    }
+
+	    public String getAccountType() {
+	        return accountType;
+	    }
+
+	    public void setAccountType(String accountType) {
+	        this.accountType = accountType;
+	    }
+
+	    public double getAmountInvesting() {
+	        return amountinvesting;
+	    }
+
+	    public void setAmountInvesting(double balance) {
+	        this.amountinvesting = balance;
+	    }
+	}
+
+
