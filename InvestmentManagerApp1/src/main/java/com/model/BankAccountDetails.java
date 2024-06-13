@@ -1,14 +1,20 @@
 package com.model;
 
 public class BankAccountDetails {
-	
+	  	private int userId;
 	    private String bankname;
 	    private String pan;
 	    private String acNum;
 	    private String accountType;
 	    private double amountinvesting;
 
-	   
+	    public int getUserId() {
+	        return userId;
+	    }
+
+	    public void setUserId(int userId) {
+	        this.userId = userId;
+	    }
 	    public BankAccountDetails() {
 	   
 	    }
@@ -48,8 +54,8 @@ public class BankAccountDetails {
 	        return amountinvesting;
 	    }
 
-	    public void setAmountInvesting(double balance) {
-	        this.amountinvesting = balance;
+	    public void setAmountInvesting(double amountInvesting) {
+	        this.amountinvesting = amountInvesting;
 	    }
 	}
 

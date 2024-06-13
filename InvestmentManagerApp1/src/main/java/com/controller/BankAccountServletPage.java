@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.BankAccountDao;
 import com.model.BankAccountDetails;
+import com.model.User;
 
 
 @WebServlet("/BankAccountServletPage")
@@ -22,58 +23,46 @@ public class BankAccountServletPage extends HttpServlet {
 		super();
 	}
 
-	@SuppressWarnings("unused")
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
-		BankAccountDetails details = new BankAccountDetails();
-		String bankname = request.getParameter("bankname");
-		String pan = request.getParameter("pan");
-		String acNum = request.getParameter("acNum");
-		String accountType = request.getParameter("accountType");
-		  String amountInvestingStr = request.getParameter("amountinvesting");
-		 double amountinvesting = 0;
 		
+		
+		BankAccountDetails details = new BankAccountDetails();
+		String bankname = request.getParameter("bankName");
+		String pan = request.getParameter("userPan");
+		String acNum = request.getParameter("accountNumber");
+		String accountType = request.getParameter("accountType");
+		double amountInvesting = Double.parseDouble(request.getParameter("amountInvesting"));
+		 
+		  HttpSession session = request.getSession();
+	        User currentUser = (User) session.getAttribute("currentUser");
 
-		details.setBankname(bankname);
-		details.setPan(pan);
-		details.setAcNum(acNum);
-		details.setAccountType(accountType);
-		details.setAmountInvesting(amountinvesting);
+	        if (currentUser != null) {
+	            int userId = currentUser.getUserid();
 
-		session.setAttribute("bankAccountDetails", details);
+	            BankAccountDetails bankAccountDetails = new BankAccountDetails();
+	            bankAccountDetails.setUserId(userId);
+	            bankAccountDetails.setBankname(bankname);
+	            bankAccountDetails.setPan(pan);
+	            bankAccountDetails.setAcNum(acNum);
+	            bankAccountDetails.setAccountType(accountType);
+	            bankAccountDetails.setAmountInvesting(amountInvesting);
 
-		BankAccountDao bank = new BankAccountDao();
-		try {
-			int affectedrow = BankAccountDao.addbankac(details);
-			if (affectedrow > 0) {
-				response.sendRedirect("index1.jsp");
-			} else {
-				response.sendRedirect("account.jsp");
-			}
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-			 response.sendRedirect("account.jsp");
-		}
-
-		 // Check if amountinvesting is not null or empty
-       if (amountInvestingStr != null && !amountInvestingStr.trim().isEmpty()) {
-           try {
-               amountinvesting = Double.parseDouble(amountInvestingStr);
-           } catch (NumberFormatException e) {
-               e.printStackTrace();
-               // Handle invalid number format
-               response.sendRedirect("index1.jsp");
-               return;
-           }
-       } else {
-           // Handle missing amountinvesting parameter
-           response.sendRedirect("account.jsp");
-           return;
-       }
-
+	            try {
+	                int rowCount = BankAccountDao.addbankac(bankAccountDetails);
+	                if (rowCount > 0) {
+	                    response.sendRedirect("index1.jsp");
+	                } else {
+	                    response.sendRedirect("account.jsp?error=Failed to link bank account");
+	                }
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	                response.sendRedirect("account.jsp?error=Database error");
+	            }
+	        } else {
+	            response.sendRedirect("login.jsp");
+	        }
+	    }
 	}
 
-}

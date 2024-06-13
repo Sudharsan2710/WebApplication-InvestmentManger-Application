@@ -1,65 +1,54 @@
 package com.model;
 
 public class User {
-	String Username;
-	String password;
-	String email;
-	String contact;
+    private int userid;
+    private String username;
+    private String password;
+    private String email;
+    private String contact;
 
-	
-	public User() {
-		super();
-	}
+    // Getter and setter methods for userid
+    public int getUserid() {
+        return userid;
+    }
 
-	
-	public User(String username, String password) {
-		super();
-		Username = username;
-		this.password = password;
-	}
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
 
-	public User(String username, String password, String email, String contact) {
-		super();
-		Username = username;
-		this.password = password;
-		this.email = email;
-		this.contact = contact;
-	}
+    // Getter and setter methods for username
+    public String getUsername() {
+        return username;
+    }
 
-	
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getUsername() {
-		return Username;
-	}
+    // Getter and setter methods for password
+    public String getPassword() {
+        return password;
+    }
 
-	public void setUsername(String username) {
-		Username = username;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    // Getter and setter methods for email
+    public String getEmail() {
+        return email;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    // Getter and setter methods for contact
+    public String getContact() {
+        return contact;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getContact() {
-		return contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
 }
-
-

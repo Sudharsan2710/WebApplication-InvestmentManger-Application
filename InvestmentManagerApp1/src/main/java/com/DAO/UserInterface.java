@@ -3,6 +3,6 @@ import com.model.User;
 
 public interface UserInterface {
 			public int insertUser(User u);
-			public boolean userLogin(String username , String password);
+			public User userLogin(String username , String password);
 				
 }

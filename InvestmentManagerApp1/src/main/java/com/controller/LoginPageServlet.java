@@ -32,21 +32,26 @@ public class LoginPageServlet extends HttpServlet {
 			String username=request.getParameter("username");
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
+			String contact=request.getParameter("contact");
 			
-			HttpSession session = request.getSession();
 			
-			UserLoginRegister dao = new UserLoginRegister();
-		        boolean isValidUser = dao.userLogin(username, password);
+			
+			
+			UserLoginRegister ulr = new UserLoginRegister();
+		        User user = ulr.userLogin(email, password);
 			
 		       
-		        session.setAttribute("username", username);
+		       
 			
-		        if (isValidUser) {
-		           
+		        if (user != null) {
+		        	 HttpSession session = request.getSession();
+		        	 session.setAttribute("currentUser", user);
+		        	 session.setAttribute("username", user.getUsername());
+		        	 session.setAttribute("contact", user.getContact() );
 		            response.sendRedirect("index1.jsp");
 		        } else {
 		           
-		            response.sendRedirect("register.jsp?error=Invalid credentials");
+		            response.sendRedirect("login.jsp?error=Invalid credentials");
 		        }
 		    }
 	}

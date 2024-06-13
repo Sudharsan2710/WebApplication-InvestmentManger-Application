@@ -40,8 +40,8 @@
                 <div class="container">
                     <form class="login-form" method="post" action=LoginPageServlet>
                         <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" required>
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
@@ -49,6 +49,9 @@
                         </div>
                         <button type="submit" class="btn">Submit</button>
                         <a href="register.jsp">create a new Account?</a>
+                         <% if (request.getParameter("error") != null) { %>
+                        <p style="color:red;">Invalid username or password</p>
+                    <% } %>
                     </form>
                 </div>
             </section>

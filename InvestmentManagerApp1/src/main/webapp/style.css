@@ -487,3 +487,167 @@ header .container {
   margin-top: 1rem;
   text-align: center;
 }
+
+
+.investment-section {
+  padding: 2rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--backgroundColor);
+}
+
+.investment-title {
+  font-size: 2rem;
+  color: var(--darkOne);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.investment-text {
+  color: var(--lightOne);
+  font-size: 1.2rem;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.investment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 2rem; /* Adjust the left margin as needed */
+}
+
+.investment-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.investment-method h3 {
+  color: var(--darkOne);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.investment-method p {
+  color: var(--lightOne);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+
+
+.funds-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.funds-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.card-header {
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: var(--darkOne);
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.content-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.content-row:last-child {
+  border-bottom: none;
+}
+
+.col {
+  padding: 0 0.5rem;
+}
+
+.logo-col {
+  flex: 0 0 50px;
+}
+
+.fund-logo {
+  max-width: 40px;
+}
+
+.fund-info-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fund-link {
+  text-decoration: none;
+  color: var(--darkOne);
+  font-weight: bold;
+}
+
+.fund-link:hover {
+  color: var(--hoverColor);
+}
+
+.returns-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.returns {
+  font-size: 0.875rem;
+  color: var(--lightOne);
+}
+
+.invest-btn-col {
+  flex: 0 0 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.invest-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.invest-btn:hover {
+  background-color: #218838;
+}
