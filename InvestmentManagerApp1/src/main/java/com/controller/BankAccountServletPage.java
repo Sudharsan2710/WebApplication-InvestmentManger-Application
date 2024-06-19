@@ -28,7 +28,7 @@ public class BankAccountServletPage extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
-		BankAccountDetails details = new BankAccountDetails();
+	
 		String bankname = request.getParameter("bankName");
 		String pan = request.getParameter("userPan");
 		String acNum = request.getParameter("accountNumber");
@@ -65,4 +65,3 @@ public class BankAccountServletPage extends HttpServlet {
 	        }
 	    }
 	}
-

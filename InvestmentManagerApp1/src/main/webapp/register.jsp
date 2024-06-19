@@ -85,6 +85,41 @@
     if (status && message) {
         handleResponse(status, message);
     }
+    
+ 
+    function validateForm() {
+        // Validate username
+        const username = document.getElementById('username').value;
+        if (username.trim() === "") {
+            swal("Error!", "Username cannot be empty.", "error");
+            return false;
+        }
+
+        // Validate email
+        const email = document.getElementById('email').value;
+        if (!email.includes("@")) {
+            swal("Error!", "Email must contain '@' symbol.", "error");
+            return false;
+        }
+
+        // Validate password
+        const password = document.getElementById('password').value;
+        const passwordPattern = /^[A-Z].{7,}$/;
+        if (!passwordPattern.test(password)) {
+            swal("Error!", "Password must be at least 8 characters long and start with a capital letter.", "error");
+            return false;
+        }
+
+        // Validate contact
+        const contact = document.getElementById('contact').value;
+        const contactPattern = /^\d{10}$/;
+        if (!contactPattern.test(contact)) {
+            swal("Error!", "Contact must contain exactly 10 digits.", "error");
+            return false;
+        }
+
+        return true;
+    }
 </script>
 </body>
 </html>

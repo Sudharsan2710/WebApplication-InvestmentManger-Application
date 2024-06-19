@@ -57,6 +57,28 @@
             </section>
         </div>
     </main>
+    
+     <script>
+    // Function to validate form fields
+    function validateForm() {
+        // Validate email
+        const email = document.getElementById('email').value;
+        if (!email.includes("@")) {
+            swal("Error!", "Email must contain '@' symbol.", "error");
+            return false;
+        }
+
+        // Validate password
+        const password = document.getElementById('password').value;
+        const passwordPattern = /^[A-Z].{7,}$/;
+        if (!passwordPattern.test(password)) {
+            swal("Error!", "Password must be at least 8 characters long and start with a capital letter.", "error");
+            return false;
+        }
+
+        return true;
+    }
+    </script>
 
 </body>
 </html>

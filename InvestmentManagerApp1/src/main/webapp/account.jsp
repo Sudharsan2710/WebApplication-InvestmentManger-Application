@@ -54,7 +54,7 @@
                 <h1>Welcome, <%= currentUser.getUsername() %></h1>
                 <p>User ID: <%= currentUser.getUserid() %></p>
                 <p>Email: <%= currentUser.getEmail() %></p>
-                <p>Contact: <%= currentUser.getContact() %></p>
+               
             </div>
         </section>
 

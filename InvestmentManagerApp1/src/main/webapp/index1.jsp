@@ -25,21 +25,30 @@
 							<%
 							if (session.getAttribute("username") != null) {
 							%>
-							<li><a href="#">Services&Products</a></li>
+							<li class="dropdown"><a href="#" class="dropbtn">Services&Products</a>
+								<div class="dropdown-content">
+									<a href="mutualfund.jsp">Mutual Funds</a>
+									<a href="goldcalculation.jsp">Gold</a>
+									<!-- Add more dropdown items if needed -->
+								</div></li>
 							<li><a href="account.jsp">Bank Account</a></li>
-
-							<li><a href="#"> <i class="fas fa-user"></i> <%=session.getAttribute("username")%>
-							</a></li>
+							<li><a href="#"><i class="fas fa-user"></i> <%=session.getAttribute("username")%></a></li>
 							<li><a href="login.jsp" class="btn">Sign out</a></li>
+							
+							
+							
+							
+							
+							
 							<%
 							} else {
 							%>
 							<!-- User is not logged in -->
-							<li><a href="#">Services</a></li>
-							<li><a href="#">Bank Account</a></li>
-							<li><a href="#">Portfolio</a></li>
-							<li><a href="login.jsp">Login</a></li>
-							<li><a href="register.jsp">Register</a></li>
+							<li class="dropdown"><a href="#" class="dropbtn">Services&Products</a>
+								<div class="dropdown-content">
+									<a href="#">Bank Account</a> <a href="#">Portfolio</a> <a
+										href="mutualfund.jsp">Mutual Funds</a>
+								</div></li>
 							<%
 							}
 							%>
