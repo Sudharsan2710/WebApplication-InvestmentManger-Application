@@ -22,7 +22,8 @@ public class InvestmentDao {
 	  public static int addinvestment(Investment iv) throws SQLException {
 	        int rowcount = 0;
 	        String query = "INSERT INTO investment (user_id,Investment_Types, amount, date_of_investment) VALUES (?, ?, ?, ?)";
-	        try (Connection con = BankAccountDao.connectDB(); PreparedStatement pst = con.prepareStatement(query)) {
+	        try (Connection con = BankAccountDao.connectDB();
+	        	PreparedStatement pst = con.prepareStatement(query)) {
 	        	BankAccountDetails bd=new BankAccountDetails();
 	        	pst.setInt(1, iv.getUserId());
 	        	pst.setInt(2, iv.getInvestmenttype());

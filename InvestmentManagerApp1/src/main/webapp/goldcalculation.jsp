@@ -37,15 +37,40 @@
                 <a href="index.jsp"><h3>INVESTA</h3></a>
             </div>
 
-            <div class="links">
-                <ul>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Bank Account</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> <%= currentUser.getUsername() %></a></li>
-                    <li><a href="login.jsp" class="btn">Sign out</a></li>
-                </ul>
-            </div>
+          <div class="links">
+						<ul>
+							<%
+							if (session.getAttribute("username") != null) {
+							%>
+							<li class="dropdown"><a href="#" class="dropbtn">Services&Products</a>
+								<div class="dropdown-content">
+									<a href="mutualfund.jsp">Mutual Funds</a>
+									<a href="goldcalculation.jsp">Gold</a>
+									<!-- Add more dropdown items if needed -->
+								</div></li>
+							<li><a href="account.jsp">Bank Account</a></li>
+							<li><a href="#"><i class="fas fa-user"></i> <%=session.getAttribute("username")%></a></li>
+							<li><a href="login.jsp" class="btn">Sign out</a></li>
+							
+							
+							
+							
+							
+							
+							<%
+							} else {
+							%>
+							<!-- User is not logged in -->
+							<li class="dropdown"><a href="#" class="dropbtn">Services&Products</a>
+								<div class="dropdown-content">
+									<a href="#">Bank Account</a> <a href="#">Portfolio</a> <a
+										href="mutualfund.jsp">Mutual Funds</a>
+								</div></li>
+							<%
+							}
+							%>
+						</ul>
+					</div>
 
             <div class="overlay"></div>
 
